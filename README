@@ -1,0 +1,46 @@
+
+persevere-mysql-autoconfig version 0.1b
+August 1st, 2008
+by Eric Abouaf <eric.abouaf at gmail.com>
+http://javascript.neyric.com/
+
+	Generate a data source configuration file for Persevere from a MySQL database. 
+	(http://persevere.sitepen.com/, http://www.mysql.com/)
+	
+INSTALLATION:
+
+	* Create the folder /path/to/persevere/tools and unzip mysql-autoconfig.zip into it
+		(The script has references to file relative to this path.)
+	
+   * Move the mysql-connector-java-5.1.6-bin.jar file into /path/to/persevere/lib/
+		(This allow Persevere to connect to the mysql database)
+	
+USAGE:
+
+	* Edit the configuration section in persevere-mysql-autoconfig.js
+   
+	* Run the script: /bin/sh persevere-mysql-autoconfig.sh
+		=> generates a "myDatabase.json" file with all tables 
+		
+	* Edit the generated file: (all of these are optional)
+		- Change the model name (don't forget to change the data.$ref accordingly)
+		- Edit the idColumn
+		- add javascript functions to the class or its prototype. (don't forget to set the @runAt variable)
+		- add relationships between models (look at)
+   
+	* copy the myDatabase.json file into /path/to/persevere/WEB-INF/config
+   
+	* (re)start persevere "java -jar start.jar"
+	
+	* use the REST api to check that everything works !
+		- for a model "myModel" (default is the database table name), 
+		  go to http://localhost:8080/myModel or http://localhost:8080/myModel/ or http://localhost:8080/myModel/1
+		
+
+LIMITATIONS/TODO LIST:
+
+	* id column should be called "id"
+	* Error handling is very poor
+	
+	
+	
