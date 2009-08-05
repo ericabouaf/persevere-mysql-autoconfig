@@ -7,7 +7,7 @@ var host = "localhost";       // Database host to connect to :
 var database = "yourdbname";  // Database name :
 var username = "dbuser";      // MySQL username & password
 var password = "dbpasswd";
-var utf8 = true;              // Should be true if your database is in UTF8
+var utf8 = false;              // Should be true if your database is in UTF8
 
 /**
  * END OF CONFIGURATION
@@ -55,7 +55,7 @@ function generateSourceFromTable(tableName) {
 	      "name": tableName,
 	      "sourceClass":"org.persvr.datasource.DatabaseTableDataSource",
 		   "driver": driver,
-		   "connection": connectionStr+"?user="+username+"&pass="+password+(utf8 ? "&useUnicode=true&characterEncoding=utf-8&mysqlEncoding=utf8" : ""),
+		   "connection": connectionStr+"?user="+username+"&password="+password+(utf8 ? "&useUnicode=true&characterEncoding=utf-8&mysqlEncoding=utf8" : ""),
 		   "table": tableName,
 		   "idColumn":"id",
 		   "dataColumns": fieldList,

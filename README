@@ -39,8 +39,25 @@ USAGE:
 
 LIMITATIONS/TODO LIST:
 
-	* id column should be called "id"
 	* Error handling is very poor
-	
-	
-	
+
+EXAMPLES:
+
+* id column should be called "id" and must be primary key
+create table myTable(id int not null auto_increment, primary key(id), firstname varchar(30), lastname varchar(30));
+
+$ curl localhost:8080/myTable
+{}&&[
+$ curl -d '{firstname:"ray", lastname:"medeiros"}' localhost:8080/myTable
+({"id":"myTable/1",
+"firstname":"ray",
+"lastname":"medeiros"
+})
+$ curl localhost:8080/myTable
+{}&&[
+{"id":"myTable/1",
+        "firstname":"ray",
+        "lastname":"medeiros"
+}
+]
+
