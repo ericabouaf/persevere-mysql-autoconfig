@@ -40,6 +40,9 @@ USAGE:
 LIMITATIONS/TODO LIST:
 
 	* Error handling is very poor
+	* This apparently can't be done with gen-server created app servers, and you really need to
+          do java -jar start.jar in the persevere directory.
+	  (I suspect this is a java classpath issue).
 
 EXAMPLES:
 
