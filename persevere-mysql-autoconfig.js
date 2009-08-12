@@ -58,6 +58,7 @@ function generateSourceFromTable(tableName) {
 		   "connection": connectionStr+"?user="+username+"&password="+password+(utf8 ? "&useUnicode=true&characterEncoding=utf-8&mysqlEncoding=utf8" : ""),
 		   "table": tableName,
 		   "idColumn":"id",
+                   "camelCaseColumnNames":false,
 		   "dataColumns": fieldList,
 		   "schema":{
 			   "prototype":{},
